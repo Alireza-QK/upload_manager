@@ -22,9 +22,9 @@ class UploadManager(models.Model):
 		options={'quality': 1000},
 	)
 
-	image_width = models.CharField(verbose_name='image width', max_length=16)
-	image_height = models.CharField(verbose_name='image height', max_length=16)
-	type_image = models.CharField(verbose_name='type image', max_length=12)
+	image_width = models.CharField(verbose_name='image width', max_length=16, default='0', blank=True)
+	image_height = models.CharField(verbose_name='image height', max_length=16, default='0', blank=True)
+	type_image = models.CharField(verbose_name='type image', max_length=12, default='jpg', blank=True)
 	created_at = models.DateTimeField(auto_now_add=True)
 
 	def __str__(self):
