@@ -17,8 +17,8 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ object.title }}</h5>
                                 <div class="btn-group-vertical">
-                                    <button type="button" class="btn btn-danger btn-block">Original Image</button>
-                                    <button type="button" class="btn btn-primary btn-block">Thumbnail Image</button>
+                                    <a href="{{ object.image.url }}" target="_blank" class="btn btn-danger btn-block">Original Image</a>
+                                    <a href="{{ object.thumbnail.url }}" target="_blank" class="btn btn-primary btn-block">Thumbnail Image</a>
                                 </div>
                                 <p>
                                     Image size:
