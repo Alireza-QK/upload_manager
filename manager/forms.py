@@ -7,6 +7,12 @@ from .models import UploadManager
 
 class UploadManagerForm(forms.ModelForm):
 
+	def __init__(self, *args, **kwargs):
+		super().__init__(*args, **kwargs)
+		
+		for visible in self.visible_fields():
+			visible.field.widget.attrs['class'] = 'form-control'
+
 	image = forms.FileField(
 		label='', help_text="Formats accepted: JPEG nd PNG nd JPG nd GIF",
 		validators=[FileTypeValidator(
