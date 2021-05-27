@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, DeleteView
 from .models import UploadManager
 from .forms import UploadManagerForm
@@ -13,6 +14,7 @@ class CreateUploadView(CreateView):
     model = UploadManager
     form_class = UploadManagerForm
     template_name = 'manager/upload.html'
+    success_url = reverse_lazy('manager:list_image')
 
     def get(self, request, *args, **kwargs):
         form = self.form_class
