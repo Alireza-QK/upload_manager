@@ -26,6 +26,7 @@ class UploadManagerForm(forms.ModelForm):
 	
 	def clean_image(self):
 		image = self.cleaned_data.get('image')
+		print(image.size)
 		fileSize = image.size
 		megabyte_limit = 3.0
 
