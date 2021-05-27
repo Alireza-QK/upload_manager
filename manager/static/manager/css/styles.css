@@ -11,3 +11,18 @@
      background-color: #f3f3f3;
  }
  
+ .errorlist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+ }
+
+ .errorlist li {
+    background-color: #ff8bac;
+    border-radius: 3px;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 14px;
+    margin: 10px 0;
+ }
