@@ -18,13 +18,13 @@
         <div class="collapse navbar-collapse" id="mainNavbar">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="{% url 'manager:list_image' %}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Upload image</a>
+                    <a class="nav-link" href="{% url 'manager:upload' %}">Upload image</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">List image</a>
+                    <a class="nav-link" href="{% url 'manager:list_image' %}">List image</a>
                 </li>
             </ul>
         </div>
