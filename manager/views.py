@@ -13,3 +13,9 @@ class CreateUploadView(CreateView):
     model = UploadManager
     form_class = UploadManagerForm
     template_name = 'manager/upload.html'
+
+    def get(self, request, *args, **kwargs):
+        form = self.form_class
+        context = { 'form': form }
+        return render(request, self.template_name, context)
+    
