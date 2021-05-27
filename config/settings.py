@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # External apps
+    'imagekit',
+
     # Our apps
     'manager.apps.ManagerConfig',
 ]
