@@ -9,6 +9,7 @@ from .forms import UploadManagerForm
 class ImageListView(ListView):
     model = UploadManager
     template_name = 'manager/image_list.html'
+    paginate_by = 5
 
 
 class CreateUploadView(CreateView):
@@ -49,4 +50,3 @@ class CreateUploadView(CreateView):
         form = self.form_class
         context = { 'form': form }
         return render(request, self.template_name, context)
-    
