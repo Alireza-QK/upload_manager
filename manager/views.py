@@ -7,4 +7,9 @@ from .forms import UploadManagerForm
 class ImageListView(ListView):
     model = UploadManager
     template_name = 'manager/image_list.html'
-    
+
+
+class CreateUploadView(CreateView):
+    model = UploadManager
+    form_class = UploadManagerForm
+    template_name = 'manager/upload.html'
