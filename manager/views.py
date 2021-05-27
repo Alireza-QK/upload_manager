@@ -50,3 +50,8 @@ class CreateUploadView(CreateView):
         form = self.form_class
         context = { 'form': form }
         return render(request, self.template_name, context)
+
+
+class DeleteUploadView(DeleteView):
+    model = UploadManager
+    success_url = reverse_lazy('manager:list_image')

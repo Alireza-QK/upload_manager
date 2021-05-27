@@ -1,5 +1,5 @@
 from django.urls import path
-from manager.views import ImageListView, CreateUploadView
+from manager.views import ImageListView, CreateUploadView, DeleteUploadView
 
 app_name = 'manager'
 
