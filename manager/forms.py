@@ -30,7 +30,7 @@ class UploadManagerForm(forms.ModelForm):
 		fileSize = image.size
 		megabyte_limit = 3.0
 
-		if filesize > megabyte_limit * 1024 * 1024:
+		if fileSize > megabyte_limit * 1024 * 1024:
 			raise ValidationError("Max file size is %sMB" % str(megabyte_limit))
 
 		return image
