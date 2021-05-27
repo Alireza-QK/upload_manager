@@ -4,6 +4,7 @@ project manager uploader image with django
 ## used:
 - python3 | DJANGO framework
 - SQLite database
+- Bootstrap 4 & JQuery
 
 ## to use this app:
 - install python3, pip3, virtualenv
