@@ -32,7 +32,7 @@
                                     Created at:
                                     {{ object.created_at|date:"d-m-Y" }}
                                 </p>
-                                <a href="#" class="btn btn-warning btn-block">Delete</a>
+                                <a href="{% url 'manager:delete' object.pk %}" class="btn btn-warning btn-block">Delete</a>
                             </div>
                     </div>
                 </div>
