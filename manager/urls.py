@@ -5,4 +5,5 @@ app_name = 'manager'
 
 urlpatterns = [
     path('', ImageListView.as_view(), name="list_image"),
+    path('upload/', ImageListView.as_view(), name="upload"),
 ]
