@@ -1,2 +1,2 @@
-# upload_manager
+# Upload manager
 پروژه آپلود منجر عکس با جنگو
