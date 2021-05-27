@@ -6,11 +6,26 @@ from django.dispatch import receiver
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill
 
-from .utils import *
+from .utils import upload_image_path
 
 class UploadManager(models.Model):
-    """
+	"""
 		Represents a uploader image file
 	"""
 
-    pass
+	title = models.CharField(verbose_name='title image', max_length=128, blank=True)
+
+	image = models.ImageField(verbose_name='image', upload_to=upload_image_path)
+	thumbnail = ImageSpecField(
+		source='image',
+		processors=[ResizeToFill(530, 470)],
+		options={'quality': 1000},
+	)
+
+	image_width = models.CharField(verbose_name='image width', max_length=16)
+	image_height = models.CharField(verbose_name='image height', max_length=16)
+	type_image = models.CharField(verbose_name='type image', max_length=12)
+	created_at = models.DateTimeField(auto_now_add=True)
+
+	def __str__(self):
+		return self.title
