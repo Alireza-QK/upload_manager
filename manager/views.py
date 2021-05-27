@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, DeleteView
 from PIL import Image
@@ -17,34 +17,32 @@ class CreateUploadView(CreateView):
     template_name = 'manager/upload.html'
     success_url = reverse_lazy('manager:list_image')
 
-    def save(self):
-        pass
-
     def form_valid(self, form):
-        response = super().form_valid(form)
-        form.save(commit=False)
+        response = form.save(commit=False)
+        
         context = {
             'form': form
         }
-        
 
         if form.is_valid():
             image = form.cleaned_data.get('image')
             title = form.cleaned_data.get('title')
-            if title is None or title is '':
+            if title is None or title == '':
                 title = image.name
             
             infoImage = Image.open(image)
             width, height = infoImage.size
 
-            UploadManager.objects.create(
-                title='',
+            uplader = UploadManager.objects.create(
+                title=title,
                 image=image,
                 image_width=width,
                 image_height=height,
                 type_image=infoImage.format
             )
-
+            if uplader:
+                return redirect('manager:upload')
+        
         return render(self.request, self.template_name, context)
 
     def get(self, request, *args, **kwargs):
