@@ -29,3 +29,14 @@ class UploadManager(models.Model):
 
 	def __str__(self):
 		return self.title
+
+
+@receiver(pre_delete, sender=UploadManager)
+def pre_delete_image(sender, instance, **kwargs):
+	object_current = sender.objects.get(pk=instance.pk)
+
+	if object_current:
+		os.remove(object_current.image.path)
+		os.remove(object_current.thumbnail.path)
+		r = os.path.dirname(object_current.thumbnail.path)
+		os.rmdir(r)
